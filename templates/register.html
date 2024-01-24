@@ -1,0 +1,51 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<main>
+    <h2>Provide Registration Details...</h2>
+
+    {% for message in messages %}
+    <p style="color: red;"> {{message}} </p>
+    <hr>
+    {% endfor %}
+
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+
+        <p>Name</p>
+        <input type="text" name="r_name"/>
+        <br>
+
+        <p>Email</p>
+        <input type="email" name="r_email"/>
+        <br>
+
+        <p>Password</p>
+        <input type="password" name="r_password">
+        <br>
+
+        <p>Enter password again</p>
+        <input type="password" name="r_password2">
+        <button type="submit">Register</button>
+        <br>
+        <br>
+        <hr>
+
+        <button type="submit" name="generate" value="true"> Generate random password? </button>
+        
+        
+            <p>
+                {{register_context.random_password}}
+            </p>
+        
+
+    </form>
+    
+</main>
+</html>
+
+

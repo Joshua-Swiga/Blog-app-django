@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+<main>
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <p>Username</p>
+        <input type="text" name="l_username">
+        
+        <br>
+
+        <p>Password</p>
+        <input type="password" name="l_password">
+
+        <button type="submit">Sign in</button>
+
+    </form>
+</main>
+</html>
